@@ -1,0 +1,98 @@
+{
+  "defaultIngredients": {
+    "bread": [
+      "Sub Rolls",
+      "White Bread",
+      "Hawaiian Roll",
+      "Focaccia",
+      "Sourdough",
+      "Baguettes",
+      "Wheat Bread",
+      "Bagel",
+      "Lettuce Wrap",
+      "Potato Roll",
+      "English Muffin",
+      "Kaiser Roll",
+      "JKLDSJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ"
+    ],
+
+    "main": [
+      "Peanut Butter",
+      "Turkey",
+      "Roast Beef",
+      "Salami",
+      "Tuna",
+      "Bologna",
+      "Chicken",
+      "Bacon",
+      "Brisket",
+      "Steak",
+      "Pastrami",
+      "Ham"
+    ],
+
+    "cheese": [
+      "American Cheese",
+      "Raclette",
+      "Gouda",
+      "Pepperjack",
+      "Swiss",
+      "Provolone",
+      "Muenster",
+      "Fontina",
+      "Gruyère",
+      "Brie",
+      "Blue Cheese",
+      "Cheddar"
+    ],
+
+    "roughage": [
+      "Pear",
+      "Roasted Brussle Sprouts",
+      "Sweet Potato",
+      "Pecans",
+      "Roasted Carrots",
+      "Avacado",
+      "Roasted Mushrooms",
+      "Corn",
+      "Black Beans",
+      "Cooked Spinach",
+      "Kidney Beans",
+      "Pickle"
+    ],
+
+    "sauce": [
+      "Peanut Sauce",
+      "Roasted Red Pepper Sauce",
+      "Honey Mustard",
+      "Chipotle Sauce",
+      "Mayonnaise",
+      "Pesto",
+      "Jam",
+      "Cream Cheese",
+      "Hot Sauce",
+      "Hummus",
+      "BBQ Sauce",
+      "Pasta Sauce"
+    ],
+
+    "chaos": [
+      "None",
+      "Kimchi",
+      "Salt and Pepper",
+      "Garlic Butter",
+      "Grilled Onions",
+      "French Onion Soup Dip",
+      "Tomato Soup Dip",
+      "Mango",
+      "Extra Cheese",
+      "Extra Roughage",
+      "Potato Chips",
+      "Squid"
+    ],
+
+    "REALLYLONGWORDISSUPERLONGANDNOTABLETOBESEEN": []
+  },
+
+  "sandwiches": []
+}
