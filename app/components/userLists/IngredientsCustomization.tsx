@@ -15,16 +15,57 @@ export default function IngredientsListing() {
   const [categoriesAmount, setCategoriPesAmount] = useAtom(amountOfCategories);
   const [categoryCounter, setCategoryCounter] = useAtom(counter);
 
-  console.log(categories);
-
   function handleSubmit(e) {
     e.preventDefault();
 
     const addIngredient = e.target;
     const formData = new FormData(addIngredient);
-
     const formResults = Object.fromEntries(formData.entries());
   }
+
+  function handleToggleIngredientActiveState(index) {
+    const currentCategory = Object.keys(categories)[categoryCounter];
+    console.log("currentCategory is ");
+    console.log(currentCategory);
+    const ingredientData = categories[currentCategory];
+
+    setCategories((prevCategories) => {
+      return Object.keys(prevCategories).reduce((acc, individualCategory) => {
+        if (individualCategory === currentCategory) {
+          acc[individualCategory] = [...prevCategories[individualCategory]].map(
+            (obj, i) => {
+              return i === index ? { ...obj, active: !obj.active } : { ...obj };
+            },
+          );
+        } else {
+          acc[individualCategory] = [...prevCategories[individualCategory]];
+        }
+        return acc;
+      }, {});
+    });
+  }
+
+  function handleDeleteIngredient(index) {
+    const currentCategory = Object.keys(categories)[categoryCounter];
+    const ingredientData = categories[currentCategory];
+    const newIngredientsArray = ingredientData
+      .slice(0, index)
+      .concat(ingredientData.slice(index + 1, ingredientData.length));
+
+    setCategories((prevCategories) => {
+      return Object.keys(prevCategories).reduce((acc, individualCategory) => {
+        console.log(individualCategory);
+        if (individualCategory === currentCategory) {
+          acc[individualCategory] = newIngredientsArray;
+        } else {
+          acc[individualCategory] = [...prevCategories[individualCategory]];
+        }
+        return acc;
+      }, {});
+    });
+  }
+
+  function handleToggleIngredientActivity() {}
 
   return (
     <div className="flex h-[35rem] w-11/12 flex-col items-center justify-center rounded-3xl bg-secondary py-7 text-primary">
@@ -36,7 +77,7 @@ export default function IngredientsListing() {
             } flex h-full w-full flex-col items-center justify-center`}
             key={index}
           >
-            <div className="h-1/12 flex w-11/12 justify-between">
+            <div className="mb-4 flex h-[8.3%] w-10/12 items-center justify-between">
               <button
                 onClick={() => {
                   setCategoryCounter((prevCounter) => {
@@ -46,7 +87,7 @@ export default function IngredientsListing() {
                 disabled={categoryCounter === 0}
                 className={`${
                   categoryCounter === 0 ? "invisible" : "visible"
-                } h-1/2 w-7 transition-transform ease-in-out hover:scale-125`}
+                } h-3/4 w-7 transition-transform ease-in-out hover:scale-125`}
               >
                 <FontAwesomeIcon className="h-full w-full" icon={faCaretLeft} />
               </button>
@@ -74,7 +115,7 @@ export default function IngredientsListing() {
                   categoryCounter === categoriesAmount - 1
                     ? "invisible"
                     : "visible"
-                } order-3 h-1/2 w-7 transition-transform ease-in-out hover:scale-125`}
+                } order-3 h-3/4 w-7 transition-transform ease-in-out hover:scale-125`}
                 value={`category_${categoryCounter}`}
               >
                 <FontAwesomeIcon
@@ -83,7 +124,7 @@ export default function IngredientsListing() {
                 />
               </button>
             </div>
-            <div className="h-full w-11/12 overflow-y-hidden">
+            <div className="mb-4 h-full w-11/12 overflow-y-hidden">
               <div
                 className="flex h-full flex-col items-center justify-center"
                 key={index}
@@ -117,12 +158,26 @@ export default function IngredientsListing() {
                         >
                           <h3
                             className="w-10/12 truncate"
-                            title={individualIngredient}
+                            title={individualIngredient.name}
                           >
-                            {individualIngredient}
+                            {individualIngredient.name}
                           </h3>
-                          <button className="w-1/12">O</button>
-                          <button className="w-1/12">X</button>{" "}
+                          <button
+                            onClick={() => {
+                              handleToggleIngredientActiveState(index);
+                            }}
+                            className="w-1/12"
+                          >
+                            O
+                          </button>
+                          <button
+                            onClick={() => {
+                              handleDeleteIngredient(index);
+                            }}
+                            className="w-1/12"
+                          >
+                            X
+                          </button>{" "}
                         </div>
                       );
                     },

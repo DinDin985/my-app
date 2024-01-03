@@ -9,9 +9,11 @@ export default function UserSandwhich() {
 
   return (
     <div className="mb-16 flex w-11/12 flex-col items-center rounded-3xl bg-secondary py-7 text-primary">
-      <h1 className="mb-5 text-3xl font-bold">YOUR SANDWHICH</h1>
+      <div className="mb-5 flex h-[8.3%] items-center justify-center">
+        <h1 className="text-3xl font-bold">YOUR SANDWHICH</h1>
+      </div>
 
-      <ul className="w-10/12">
+      <ul className="h-full w-10/12">
         {Object.keys(categories).map((category, index) => {
           return (
             <li

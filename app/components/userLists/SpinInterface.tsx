@@ -77,7 +77,7 @@ export default function SpinInterface() {
   function moveToNextCategory(category: string) {
     if (categorySelector < categoriesAmount - 1) {
       setUserSandwich((prevData) => {
-        return { ...prevData, [category]: diceArray[0] };
+        return { ...prevData, [category]: diceArray[0].name };
       });
 
       setCategorySelector((prevSelector) => {
@@ -105,6 +105,7 @@ export default function SpinInterface() {
           } relative h-full w-full cursor-pointer`}
           onClick={() => {
             handleRoll(currentCategory);
+            console.log(diceArray);
           }}
         >
           <Image
@@ -117,63 +118,63 @@ export default function SpinInterface() {
           <div className="absolute left-[50%] top-[50%] line-clamp-3 flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center text-red-500">
             <h2
               className="w-full overflow-hidden text-ellipsis text-center text-3xl font-bold"
-              title={diceArray[0]}
+              title={diceArray[0].name}
             >
-              {diceArray[0]}
+              {diceArray[0].name}
             </h2>
           </div>
 
           <div className="absolute left-[15%] top-[36%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(50deg)rotateZ(-70deg)]">
             <h3 className="line-clamp-1 w-full overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[1]}
+              {diceArray[1].name}
             </h3>
           </div>
 
           <div className="absolute right-[15%] top-[36%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(50deg)rotateZ(70deg)]">
             <h3 className="line-clamp-1 w-full overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[2]}
+              {diceArray[2].name}
             </h3>
           </div>
 
           <div className="absolute left-[37.5%] top-[77%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(50deg)rotateZ(180deg)]">
             <h3 className="line-clamp-1 w-full overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[3]}
+              {diceArray[3].name}
             </h3>
           </div>
 
           <div className="absolute left-[30%] top-[13.5%] flex w-2/12 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateY(-35deg)rotateZ(-12deg)]">
             <h3 className="w-full overflow-hidden truncate text-ellipsis text-center text-xl">
-              {diceArray[4]}
+              {diceArray[4].name}
             </h3>
           </div>
 
           <div className="absolute right-[30%] top-[13.5%] flex w-2/12 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateY(35deg)rotateZ(12deg)]">
             <h3 className="w-full overflow-hidden truncate text-ellipsis text-center text-xl">
-              {diceArray[5]}
+              {diceArray[5].name}
             </h3>
           </div>
 
           <div className="absolute left-[3%] top-[55%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(35deg)rotateZ(255deg)]">
             <h3 className="line-clamp-1 w-2/3 overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[6]}
+              {diceArray[6].name}
             </h3>
           </div>
 
           <div className="absolute right-[3%] top-[55%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(35deg)rotateZ(-255deg)]">
             <h3 className="line-clamp-1 w-2/3 overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[7]}
+              {diceArray[7].name}
             </h3>
           </div>
 
           <div className="absolute right-[12%] top-[72.5%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(35deg)rotateZ(-230deg)]">
             <h3 className="line-clamp-1 w-2/3 overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[8]}
+              {diceArray[8].name}
             </h3>
           </div>
 
           <div className="absolute left-[12%] top-[72.5%] flex w-1/4 translate-x-[-50%] translate-y-[-50%] items-center justify-center [transform:rotateX(35deg)rotateZ(230deg)]">
             <h3 className="line-clamp-1 w-2/3 overflow-hidden text-ellipsis text-center text-xl">
-              {diceArray[9]}
+              {diceArray[9].name}
             </h3>
           </div>
         </div>
@@ -212,9 +213,9 @@ export default function SpinInterface() {
           <div className="flex h-4/6 w-full flex-col items-center justify-center bg-[#666666] p-4">
             <h1
               className="truncate text-5xl font-bold leading-loose"
-              title={diceArray[0]}
+              title={diceArray[0].name}
             >
-              {diceArray[0]}
+              {diceArray[0].name}
             </h1>
             <p>Has Been Selected</p>
           </div>
