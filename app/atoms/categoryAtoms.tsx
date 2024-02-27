@@ -1,6 +1,13 @@
 import { atom } from "jotai";
 import Categories from "../../data/db.json";
 
+interface diceArray {
+  name: string;
+  active: boolean;
+}
+
+const initialDiceArray: diceArray[] = atom(Categories.defaultIngredients.bread);
+
 const categoriesLists = atom<object>(Categories.defaultIngredients);
 
 const amountOfCategories = atom<number>(
@@ -26,6 +33,7 @@ export {
   amountOfCategories,
   categoriesLists,
   counter,
+  initialDiceArray,
   sandwichLayout,
   wheelsData,
 };

@@ -18,6 +18,8 @@
       }
     ],
 
+    "REALLYLONGWORDISSUPERLONGANDNOTABLETOBESEEN": [],
+
     "main": [
       { "name": "Peanut Butter", "active": true },
       { "name": "Turkey", "active": true },
@@ -90,9 +92,7 @@
       { "name": "Extra Roughage", "active": true },
       { "name": "Potato Chips", "active": true },
       { "name": "Squid", "active": true }
-    ],
-
-    "REALLYLONGWORDISSUPERLONGANDNOTABLETOBESEEN": []
+    ]
   },
 
   "sandwiches": []

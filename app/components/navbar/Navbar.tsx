@@ -22,6 +22,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 z-10 flex h-[60px] items-center bg-primary">
       <div
+        onClick={() => setsidebarToggle((prevToggle) => !prevToggle)}
         className={`${
           sidebarToggle ? "block" : "hidden"
         } fixed left-0 top-0 z-0 h-screen w-screen backdrop-brightness-50`}
