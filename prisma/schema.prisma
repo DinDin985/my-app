@@ -16,34 +16,36 @@ model User{
   id          Int    @id     @default(autoincrement())
   username    String @unique
   totalPoints Int
-  // sandwiches  Sandwich[]
+  sandwiches  Sandwich[]
 }
 
 model Sandwich{
   id          Int @id @default(autoincrement())
   name        String
   rating      Int
-  // user        User @relation(fields:[userId], references:[id])
-  // userId      Int
+  user        User @relation(fields:[userId], references:[id])
+  userId      Int
   categories  Category[]
   ingredients Ingredient[]
 }
 
 model Category{
-  id           Int @id @default(autoincrement())
+  id           Int       @id @default(autoincrement())
   name         String
   sandwich     Sandwich? @relation(fields:[sandwichId], references:[id])
   sandwichId   Int?
   ingredients  Ingredient[]
+  isDefault    Boolean   @default(true)
 }
 
 model Ingredient{
-  id         Int @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   name       String
   sandwich   Sandwich? @relation(fields: [sandwichId], references: [id])
-  sandwichId Int
-  category   Category @relation(fields: [categoryId], references: [id])
+  sandwichId Int?
+  category   Category  @relation(fields: [categoryId], references: [id])
   categoryId Int
+  isDefault  Boolean   @default(true)
 }
 
 // User one to many with Sandwich

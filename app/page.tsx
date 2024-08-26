@@ -1,6 +1,6 @@
-import IngredientsListing from "./components/userLists/IngredientsCustomization";
-import SpinInterface from "./components/userLists/SpinInterface";
-import UserSandwhich from "./components/userLists/UserSandwhich";
+import SpinInterface from "./components/userLists/DiceInterface.tsx/DiceInterface";
+import IngredientsListing from "./components/userLists/IngredientsCustomization/IngredientsCustomization";
+import UserSandwhich from "./components/userLists/UserSandwhich/UserSandwhich";
 
 export default function Home() {
   return (

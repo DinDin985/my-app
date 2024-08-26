@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -15,9 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-primary pb-10 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-secondary scrollbar-thumb-rounded-lg 2xl:pb-0">
-        <Navbar />
-        {children}
+      <body className="bg-neutral-100 pb-10 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-secondary scrollbar-thumb-rounded-lg dark:bg-neutral-700 2xl:pb-0">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

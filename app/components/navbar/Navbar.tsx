@@ -6,9 +6,9 @@ import Link from "next/link";
 import { sidebarActive } from "@/app/atoms/sideBarAtoms";
 import { useAtom } from "jotai";
 
+import { ModeToggle } from "../../../components/ui/dark-mode-toggle";
 import about from "../../../public/icons/about.png";
 import contact from "../../../public/icons/contact.png";
-import darkMode from "../../../public/icons/darkMode.png";
 import feedback from "../../../public/icons/feedback.png";
 import home from "../../../public/icons/home.png";
 import leaderboards from "../../../public/icons/leaderboards.png";
@@ -20,7 +20,7 @@ export default function Navbar() {
   const [sidebarToggle, setsidebarToggle] = useAtom(sidebarActive);
 
   return (
-    <div className="sticky top-0 z-10 flex h-[60px] items-center bg-primary">
+    <div className="sticky top-0 z-10 flex h-[60px] items-center bg-slate-200 dark:bg-neutral-900">
       <div
         onClick={() => setsidebarToggle((prevToggle) => !prevToggle)}
         className={`${
@@ -33,11 +33,11 @@ export default function Navbar() {
           onClick={() => setsidebarToggle((prevToggle) => !prevToggle)}
           className="group relative ml-3 flex h-full w-9 items-center justify-center"
         >
-          <label className="z-10 block h-0.5 w-5 cursor-pointer bg-secondary before:absolute before:bottom-2.5 before:block before:h-0.5 before:w-5 before:bg-secondary before:content-[''] after:absolute after:top-2.5 after:block after:h-0.5 after:w-5 after:bg-secondary after:content-['']"></label>
+          <label className="z-10 block h-0.5 w-5 cursor-pointer bg-neutral-900 before:absolute before:bottom-2.5 before:block before:h-0.5 before:w-5 before:bg-neutral-900 before:content-[''] after:absolute after:top-2.5 after:block after:h-0.5 after:w-5 after:bg-neutral-900 after:content-[''] dark:bg-neutral-100 before:dark:bg-neutral-100 after:dark:bg-neutral-100"></label>
           <span className="absolute h-full w-full rounded-full group-hover:bg-hoverGray"></span>
         </button>
         <Image
-          className="ml-2 invert"
+          className="ml-2 dark:invert"
           height={30}
           width={30}
           src={logo}
@@ -49,18 +49,18 @@ export default function Navbar() {
       <nav
         className={`${
           sidebarToggle ? "translate-x-[248px]" : "translate-x-0"
-        } fixed -left-[248px] top-0 z-10 h-screen w-[248px] bg-primary py-3 transition-transform`}
+        } fixed -left-[248px] top-0 z-10 h-screen w-[248px] bg-slate-200 py-3 transition-transform dark:bg-neutral-900`}
       >
         <div className="flex h-9 w-full items-center border-b-black">
           <button
             onClick={() => setsidebarToggle((prevToggle) => !prevToggle)}
             className="group relative ml-3 flex h-full w-9 items-center justify-center"
           >
-            <label className="z-10 block h-0.5 w-5 cursor-pointer bg-secondary before:absolute before:bottom-2.5 before:block before:h-0.5 before:w-5 before:bg-secondary before:content-[''] after:absolute after:top-2.5 after:block after:h-0.5 after:w-5 after:bg-secondary after:content-['']"></label>
+            <label className="z-10 block h-0.5 w-5 cursor-pointer bg-neutral-900 before:absolute before:bottom-2.5 before:block before:h-0.5 before:w-5 before:bg-neutral-900 before:content-[''] after:absolute after:top-2.5 after:block after:h-0.5 after:w-5 after:bg-neutral-900 after:content-[''] dark:bg-neutral-100 before:dark:bg-neutral-100 after:dark:bg-neutral-100"></label>
             <span className="absolute h-full w-full rounded-full group-hover:bg-hoverGray"></span>
           </button>
           <Image
-            className="ml-2 invert"
+            className="ml-2 dark:invert"
             height={30}
             width={30}
             src={logo}
@@ -76,10 +76,10 @@ export default function Navbar() {
           <ul className="flex flex-col pb-3">
             <Link
               href="/home"
-              className={`my-2 flex h-12 items-center rounded-xl bg-hoverGray p-3 font-bold transition-opacity ease-in-out`}
+              className={`my-2 flex h-12 items-center rounded-xl bg-neutral-100 p-3 font-bold transition-opacity ease-in-out dark:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={home}
@@ -90,10 +90,10 @@ export default function Navbar() {
 
             <Link
               href="/leaderboards"
-              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-hoverGray`}
+              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-neutral-100 dark:hover:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={leaderboards}
@@ -104,10 +104,10 @@ export default function Navbar() {
 
             <Link
               href="/tribunal"
-              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-hoverGray`}
+              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-neutral-100 dark:hover:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={tribunal}
@@ -118,10 +118,10 @@ export default function Navbar() {
 
             <Link
               href="/about"
-              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-hoverGray`}
+              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-neutral-100 dark:hover:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={about}
@@ -132,10 +132,10 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-hoverGray`}
+              className={`mb-2 flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-neutral-100 dark:hover:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={contact}
@@ -146,10 +146,10 @@ export default function Navbar() {
 
             <Link
               href="/feedback"
-              className={`flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-hoverGray`}
+              className={`flex h-12 items-center rounded-xl p-3 font-bold transition-opacity ease-in-out hover:bg-neutral-100 dark:hover:bg-neutral-600`}
             >
               <Image
-                className="mr-2 invert"
+                className="mr-2 dark:invert"
                 height={25}
                 width={25}
                 src={feedback}
@@ -158,29 +158,19 @@ export default function Navbar() {
               Send Feedback
             </Link>
           </ul>
-          <div className="m-auto h-1 w-11/12 rounded-xl bg-gray-500"></div>
+          <div className="m-auto h-1 w-11/12 rounded-xl bg-neutral-900 dark:bg-neutral-100"></div>
         </div>
-        <div className="mb-6 flex w-full flex-col items-center justify-evenly px-3 pt-2">
-          <button className="mb-2 flex w-11/12 items-center rounded-md border-2 border-black font-bold hover:bg-hoverGray">
+        <div className="mb-6 flex w-full items-center justify-evenly px-3 pt-2">
+          <button className="flex items-center rounded-md border-2 border-black font-bold hover:bg-neutral-100 dark:hover:bg-neutral-600">
             <Image
-              className="mr-1 invert"
-              height={35}
-              width={35}
-              src={darkMode}
-              alt="Dark Mode icon"
-            />
-            Dark Mode
-          </button>
-          <button className="flex w-11/12 items-center rounded-md border-2 border-black font-bold hover:bg-hoverGray">
-            <Image
-              className="mr-1 invert"
+              className="mr-1 dark:invert"
               height={35}
               width={35}
               src={mute}
               alt="Mute icon"
             />
-            Mute
           </button>
+          <ModeToggle />
         </div>
       </nav>
     </div>
